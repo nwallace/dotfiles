@@ -70,7 +70,7 @@ inoremap <s-tab> <c-n>
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-      \ | wincmd p | diffthis
+		  \ | wincmd p | diffthis
 endif
 
 " Open files in same directory as current file (grb)
@@ -80,45 +80,45 @@ map <leader>v :view %%
 
 " Rename current file (grb)
 function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
+	let old_name = expand('%')
+	let new_name = input('New file name: ', expand('%'), 'file')
+	if new_name != '' && new_name != old_name
+		exec ':saveas ' . new_name
+		exec ':silent !rm ' . old_name
+		redraw!
+	endif
 endfunction
 map <leader>n :call RenameFile()<cr>
 
 if has("win32")
-  " copy to windows clipboard with <leader>y in cygwin
-  function! Putclip(type, ...) range
-    let sel_save = &selection
-    let &selection = "inclusive"
-    let reg_save = @@
-    if a:type == 'n'
-      silent exe a:firstline . "," . a:lastline . "y"
-    elseif a:type == 'c'
-      silent exe a:1 . "," . a:2 . "y"
-    else
-      silent exe "normal! `<" . a:type . "`>y"
-    endif
-    call writefile(split(@@,"\n"), '/dev/clipboard')
-    let &selection = sel_save
-    let @@ = reg_save
-  endfunction
-  vnoremap <silent> <leader>y :call Putclip(visualmode(), 1)<cr>
-  nnoremap <silent> <leader>y :call Putclip('n', 1)<cr>
-  " paste from windows clipboard with <leader>p in cygwin
-  function! Getclip()
-    let reg_save = @@
-    let @@ = join(readfile('/dev/clipboard'), "\n")
-    setlocal paste
-    exe 'normal p'
-    setlocal nopaste
-    let @@ = reg_save
-  endfunction
-  nnoremap <silent> <leader>p :call Getclip()<cr>
+	" copy to windows clipboard with <leader>y in cygwin
+	function! Putclip(type, ...) range
+	  let sel_save = &selection
+	  let &selection = "inclusive"
+	  let reg_save = @@
+	  if a:type == 'n'
+	    silent exe a:firstline . "," . a:lastline . "y"
+	  elseif a:type == 'c'
+	    silent exe a:1 . "," . a:2 . "y"
+	  else
+	    silent exe "normal! `<" . a:type . "`>y"
+	  endif
+	  call writefile(split(@@,"\n"), '/dev/clipboard')
+	  let &selection = sel_save
+	  let @@ = reg_save
+	endfunction
+	vnoremap <silent> <leader>y :call Putclip(visualmode(), 1)<cr>
+	nnoremap <silent> <leader>y :call Putclip('n', 1)<cr>
+	" paste from windows clipboard with <leader>p in cygwin
+	function! Getclip()
+	  let reg_save = @@
+	  let @@ = join(readfile('/dev/clipboard'), "\n")
+	  setlocal paste
+	  exe 'normal p'
+	  setlocal nopaste
+	  let @@ = reg_save
+	endfunction
+	nnoremap <silent> <leader>p :call Getclip()<cr>
 endif
 
 execute pathogen#infect()
@@ -128,14 +128,14 @@ set wildignore+=*/tmp/*,*\\tmp\\*,*.swp,*.so,*.exe,*.zip,*-meta.xml
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 if has("win32")
-  let &runtimepath=&runtimepath . ',/cygdrive/c/Users/nwallace/Vim/force.com'
-  runtime ftdetect/vim-force.com.vim
-  " sfdc settings
-  let g:apex_backup_folder="~/.tmp/apex/backup"
-  let g:apex_temp_folder="~/.tmp/apex/deploy"
-  let g:apex_deployment_error_log="errors.log"
-  let g:apex_properties_folder="C:\\Users\\nwallace\\Vim\\properties"
-  let g:apex_API_version=27.0
-  let g:apex_pollWaitMillis=1000
-  let g:apex_syntax_case_sensitive=0
+	let &runtimepath=&runtimepath . ',/cygdrive/c/Users/nwallace/Vim/force.com'
+	runtime ftdetect/vim-force.com.vim
+	" sfdc settings
+	let g:apex_backup_folder="~/.tmp/apex/backup"
+	let g:apex_temp_folder="~/.tmp/apex/deploy"
+	let g:apex_deployment_error_log="errors.log"
+	let g:apex_properties_folder="C:\\Users\\nwallace\\Vim\\properties"
+	let g:apex_API_version=27.0
+	let g:apex_pollWaitMillis=1000
+	let g:apex_syntax_case_sensitive=0
 endif
