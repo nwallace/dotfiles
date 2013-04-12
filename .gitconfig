@@ -1,0 +1,12 @@
+[user]
+	name = Nathan Wallace
+	email = nathan.m.wallace@gmail.com
+[color]
+	ui = auto
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	st = status
+	di = diff
+	l  = "!. ~/.githelpers && pretty_git_log"
