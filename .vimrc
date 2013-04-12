@@ -1,4 +1,3 @@
-" basic settings
 set nocompatible
 set hidden
 set history=1000
@@ -7,6 +6,7 @@ set shiftwidth=2
 set softtabstop=2
 set autoindent
 set laststatus=2
+set expandtab
 set showmatch
 set incsearch
 set hlsearch
@@ -15,37 +15,44 @@ set cmdheight=2
 set switchbuf=useopen
 set numberwidth=5
 set showtabline=2
+set winwidth=79
 set scrolloff=3
+set showcmd		" display incomplete commands
+set number
+set ruler
+set shell=bash " makes RVM work in vim
 set backup
-set backupdir=~/.vim-tmp
-set directory=~/.vim-tmp
+set backupdir=~/.tmp
+set directory=~/.tmp
 set backspace=indent,eol,start
-set showcmd
-syntax on
-filetype plugin indent on
+" use emacs-style tab completion when selecting files, etc  
 set wildmode=longest,list
+" make tab completion for files/buffers act like bash
 set wildmenu
-:set timeout timeoutlen=1000 ttimeoutlen=100 " fix slow O
-set number " show line numbers
+" fix slow O inserts
+:set timeout timeoutlen=1000 ttimeoutlen=100
+set background=light
 
-" navigate splits with <c-hjkl>
+syntax on
+
+" move around splits with <c-hjkl>
+nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" clear hls on return
+let mapleader=","
+
+" leader leader to swap between 2 files
+nnoremap <leader><leader> <c-^>
+
+" clear search buffer on return
 function! MapCR()
 	nnoremap <cr> :nohlsearch<cr>
 endfunction
 call MapCR()
 
-let mapleader=","
-
-" quickly reopen most recent file
-nnoremap <leader><leader> <c-^>
-
-" multi-purpose tab key (grb)
+" Multipurpose tab key - indent if at beginning of line, else complete
 function! InsertTabWrapper()
 	let col = col('.') - 1
 	if !col || getline('.')[col - 1] !~ '\k'
