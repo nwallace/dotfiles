@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="minimal"
+ZSH_THEME="nathan"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -37,6 +37,4 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH="/usr/local/bin:/usr/bin:/cygdrive/c/ruby193/bin:/cygdrive/c/Program Files/Common Files/Microsoft Shared/Windows Live:/cygdrive/c/Program Files (x86)/Common Files/Microsoft Shared/Windows Live:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files/Dell/DW WLAN Card:/cygdrive/c/Program Files (x86)/Windows Live/Shared:/cygdrive/c/Program Files/Intel/DMIX:/cygdrive/c/Program Files/doxygen/bin:/cygdrive/c/ruby193/bin:/cygdrive/c/Program Files/Common Files/Microsoft Shared/Windows Live:/cygdrive/c/Program Files (x86)/Common Files/Microsoft Shared/Windows Live:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files/Dell/DW WLAN Card:/cygdrive/c/Program Files (x86)/Windows Live/Shared:/cygdrive/c/Program Files/Intel/DMIX:/cygdrive/c/Program Files/doxygen/bin:/cygdrive/c/Chocolatey/bin:/cygdrive/c/Program Files (x86)/Git/cmd:/cygdrive/c/Python27:/cygdrive/c/Python27/Scripts:/cygdrive/c/Python27/lib/site-packages/django/bin:/cygdrive/c/Program Files (x86)/Google/Chrome/Application:/cygdrive/c/Program Files/Sublime Text 2:/cygdrive/c/Users/nwallace/bin/apache-ant-1.8.4/bin:/cygdrive/c/bin/UnixUtils/usr/local/wbin"
-
-export ANT_HOME="/cygdrive/c/Users/nwallace/bin/apache-ant-1.8.4"
+export PATH=$PATH:/Users/Nathan/.rvm/gems/ruby-1.9.3-p327/bin:/Users/Nathan/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/Nathan/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/Nathan/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/Nathan/.rvm/bin
