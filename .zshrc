@@ -37,4 +37,4 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/Users/Nathan/.rvm/gems/ruby-1.9.3-p327/bin:/Users/Nathan/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/Nathan/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/Nathan/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/Nathan/.rvm/bin
+export PATH=$PATH
