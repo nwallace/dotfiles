@@ -17,7 +17,7 @@ set numberwidth=5
 set showtabline=2
 set winwidth=79
 set scrolloff=3
-set showcmd		" display incomplete commands
+set showcmd " display incomplete commands
 set number
 set ruler
 set shell=bash " makes RVM work in vim
@@ -56,7 +56,7 @@ nnoremap <leader><leader> <c-^>
 
 " clear hls on return
 function! MapCR()
-	nnoremap <cr> :nohlsearch<cr>
+  nnoremap <cr> :nohlsearch<cr>
 endfunction
 call MapCR()
 

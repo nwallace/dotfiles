@@ -9,15 +9,15 @@ ZSH_THEME_SVN_PROMPT_DIRTY=$ZSH_THEME_GIT_PROMPT_DIRTY
 ZSH_THEME_SVN_PROMPT_CLEAN=$ZSH_THEME_GIT_PROMPT_CLEAN
 
 vcs_status() {
-    if [[ ( $(whence in_svn) != "" ) && ( $(in_svn) == 1 ) ]]; then
-        svn_prompt_info
-    else
-        git_prompt_info
-    fi
+  if [[ ( $(whence in_svn) != "" ) && ( $(in_svn) == 1 ) ]]; then
+    svn_prompt_info
+  else
+    git_prompt_info
+  fi
 }
 
 function username() {
-	echo $USERNAME | tr '[A-Z]' '[a-z]'
+  echo $USERNAME | tr '[A-Z]' '[a-z]'
 }
 
 PROMPT='$fg[blue]$(username)$fg[white]:$fg[red]%2~ $(vcs_status)$fg[white]»%b '

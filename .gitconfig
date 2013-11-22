@@ -1,15 +1,15 @@
 [user]
-	name = Nathan Wallace
-	email = nathan.m.wallace@gmail.com
+  name = Nathan Wallace
+  email = nathan.m.wallace@gmail.com
 [color]
-	ui = auto
+  ui = auto
 [core]
-	editor = vim
+  editor = vim
 [alias]
-	co = checkout
-	st = status
-	di = diff
-	lg = !"git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
+  co = checkout
+  st = status
+  di = diff
+  lg = !"git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
   aa = add --all
   cm = commit -m
   ca = commit --amend
