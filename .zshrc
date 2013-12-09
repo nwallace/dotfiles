@@ -41,3 +41,6 @@ export PATH=$PATH
 
 export EDITOR=vim
 export VISUAL=vim
+
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
