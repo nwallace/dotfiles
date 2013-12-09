@@ -37,7 +37,9 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 export EDITOR=vim
 export VISUAL=vim
+
+alias git='nocorrect git'
