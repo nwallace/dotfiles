@@ -5,6 +5,10 @@
   ui = auto
 [core]
   editor = vim
+  autocrlf = input
+  pager = less -F -X
+[push]
+  default = upstream
 [alias]
   co = checkout
   st = status
