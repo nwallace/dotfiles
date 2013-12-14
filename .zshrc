@@ -36,11 +36,13 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=$PATH:$HOME/.bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.bin
+export PATH=$PATH
 
 export EDITOR=vim
 export VISUAL=vim
 
 source /usr/share/chruby/chruby.sh
 source /usr/share/chruby/auto.sh
+
+alias git='nocorrect git'
