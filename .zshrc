@@ -47,3 +47,5 @@ source /usr/share/chruby/auto.sh
 
 alias git='nocorrect git'
 alias vi='vim'
+alias rails='nocorrect rails'
+alias tma='tmux attach'
