@@ -32,14 +32,16 @@ ZSH_THEME="nathan"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=$PATH:$HOME/.rvm/bin
 
 export EDITOR=vim
 export VISUAL=vim
 
 alias git='nocorrect git'
+alias ping-g='ping -c1 www.google.com'

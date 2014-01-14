@@ -26,7 +26,7 @@ set backupdir=~/.tmp
 set directory=~/.tmp
 set backspace=indent,eol,start
 set background=light
-" use emacs-style tab completion when selecting files, etc  
+" use emacs-style tab completion when selecting files, etc
 set wildmode=longest,list
 " make tab completion for files/buffers act like bash
 set wildmenu
@@ -37,6 +37,15 @@ set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
+set t_Co=256 " 256 colors
+
+" show trailing whitespace
+:highlight ExtraWhitespace ctermbg=gray guibg=gray
+:match ExtraWhitespace /\s\+\%#\@<!$/
+
+" show tabs (use spaces)
+:highlight Tabs ctermbg=gray guibg=gray
+:match Tabs /\t/
 
 syntax on
 filetype plugin indent on
@@ -107,6 +116,7 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 
 " rails commands
 map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gs :topleft :split db/schema.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 
 function! RunTests(filename)
