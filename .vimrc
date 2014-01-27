@@ -50,6 +50,11 @@ set t_Co=256 " 256 colors
 syntax on
 filetype plugin indent on
 
+" ctrl-s to write file
+noremap <silent><c-s> :update<cr>
+vnoremap <silent><c-s> <c-c>:update<cr>
+inoremap <silent><c-s> <c-o>:update<cr>
+
 " move around splits with <c-hjkl>
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -118,6 +123,7 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gs :topleft :split db/schema.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
+map <leader>gv :topleft 100 :split ~/.vimrc<cr>
 
 function! RunTests(filename)
     " Write the file and run tests for the given filename
@@ -154,6 +160,9 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 " Run all test files
 map <leader>a :call RunTests('spec')<cr>
+
+" expand curly braces to a do-end
+map <leader>rd ^f{sdolrAend
 
 execute pathogen#infect()
 

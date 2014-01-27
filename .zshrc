@@ -34,6 +34,8 @@ ZSH_THEME="nathan"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git zsh-syntax-highlighting)
 
+stty -ixon
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
