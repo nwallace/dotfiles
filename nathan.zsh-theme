@@ -20,4 +20,4 @@ function username() {
   echo $USERNAME | tr '[A-Z]' '[a-z]'
 }
 
-PROMPT='$fg[blue]$(username)$reset_color:$fg[green]%2~ $(vcs_status)»%b '
+PROMPT='%{$fg[blue]%}$(username)%{$reset_color%}:%{$fg[green]%}%2~ $(vcs_status)»%b '
