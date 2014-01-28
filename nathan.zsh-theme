@@ -1,7 +1,7 @@
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[white]%}["
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}●%{$reset_color%}]%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}●%{$reset_color%}] "
 ZSH_THEME_GIT_PROMPT_CLEAN="]%{$reset_color%} "
 ZSH_THEME_SVN_PROMPT_PREFIX=$ZSH_THEME_GIT_PROMPT_PREFIX
 ZSH_THEME_SVN_PROMPT_SUFFIX=$ZSH_THEME_GIT_PROMPT_SUFFIX
@@ -20,4 +20,4 @@ function username() {
   echo $USERNAME | tr '[A-Z]' '[a-z]'
 }
 
-PROMPT='$fg[blue]$(username)$fg[white]:$fg[red]%2~ $(vcs_status)$fg[white]»%b '
+PROMPT='$fg[blue]$(username)$reset_color:$fg[green]%2~ $(vcs_status)»%b '

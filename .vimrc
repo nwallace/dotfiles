@@ -26,7 +26,7 @@ set backupdir=~/.tmp
 set directory=~/.tmp
 set backspace=indent,eol,start
 set background=light
-" use emacs-style tab completion when selecting files, etc  
+" use emacs-style tab completion when selecting files, etc
 set wildmode=longest,list
 " make tab completion for files/buffers act like bash
 set wildmenu
@@ -37,9 +37,23 @@ set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
+set t_Co=256 " 256 colors
+
+" show trailing whitespace
+:highlight ExtraWhitespace ctermbg=gray guibg=gray
+:match ExtraWhitespace /\s\+\%#\@<!$/
+
+" show tabs (use spaces)
+:highlight Tabs ctermbg=gray guibg=gray
+:match Tabs /\t/
 
 syntax on
 filetype plugin indent on
+
+" ctrl-s to write file
+noremap <silent><c-s> :update<cr>
+vnoremap <silent><c-s> <c-c>:update<cr>
+inoremap <silent><c-s> <c-o>:update<cr>
 
 " move around splits with <c-hjkl>
 nnoremap <c-h> <c-w>h
@@ -110,7 +124,9 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 
 " rails commands
 map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gs :topleft :split db/schema.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
+map <leader>gv :topleft 100 :split ~/.vimrc<cr>
 
 function! RunTests(filename)
     " Write the file and run tests for the given filename
@@ -147,6 +163,9 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 " Run all test files
 map <leader>a :call RunTests('spec')<cr>
+
+" expand curly braces to a do-end
+map <leader>rd ^f{sdolrAend
 
 execute pathogen#infect()
 
