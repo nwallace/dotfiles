@@ -1,23 +1,27 @@
+autoload -U colors && colors
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}["
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}●%{$reset_color%}] "
-ZSH_THEME_GIT_PROMPT_CLEAN="]%{$reset_color%} "
-ZSH_THEME_SVN_PROMPT_PREFIX=$ZSH_THEME_GIT_PROMPT_PREFIX
-ZSH_THEME_SVN_PROMPT_SUFFIX=$ZSH_THEME_GIT_PROMPT_SUFFIX
-ZSH_THEME_SVN_PROMPT_DIRTY=$ZSH_THEME_GIT_PROMPT_DIRTY
-ZSH_THEME_SVN_PROMPT_CLEAN=$ZSH_THEME_GIT_PROMPT_CLEAN
+autoload -Uz vcs_info
 
-vcs_status() {
-  if [[ ( $(whence in_svn) != "" ) && ( $(in_svn) == 1 ) ]]; then
-    svn_prompt_info
-  else
-    git_prompt_info
-  fi
-}
-
-function username() {
+zstyle ':vcs_info:*' stagedstr '%F{green}●'
+zstyle ':vcs_info:*' unstagedstr '%F{yellow}●'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{11}%r'
+zstyle ':vcs_info:*' enable git svn
+username() {
   echo $USERNAME | tr '[A-Z]' '[a-z]'
 }
+theme_precmd () {
+    if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
+        zstyle ':vcs_info:*' formats ' [%b%c%u%B%f]'
+    } else {
+        zstyle ':vcs_info:*' formats ' [%b%c%u%B%F{red}●%f]'
+    }
 
-PROMPT='%{$fg[blue]%}$(username)%{$reset_color%}:%{$fg[green]%}%2~ $(vcs_status)»%b '
+    vcs_info
+}
+
+setopt prompt_subst
+PROMPT='%{$fg[blue]%}$(username)%{$reset_color%}:%{$fg[green]%}%2~%{$reset_color%}${vcs_info_msg_0_} »%b '
+
+autoload -U add-zsh-hook
+add-zsh-hook precmd  theme_precmd
