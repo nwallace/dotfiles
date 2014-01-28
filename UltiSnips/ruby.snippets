@@ -1,0 +1,51 @@
+snippet {
+{ $0 }
+endsnippet
+
+snippet pry
+binding.pry
+endsnippet
+
+snippet spec
+require "spec_helper"
+
+describe ${1:`!p title = re.sub('_spec\.rb$', '', fn)
+snip.rv = ''.join(x.capitalize() or '_' for x in title.split('_'))`} do
+
+	$0
+end
+endsnippet
+
+snippet let
+let(:${1:var}) { ${2:val} }
+endsnippet
+
+snippet describe
+describe $1 do
+
+	$0
+end
+endsnippet
+
+snippet context
+context "$1" do
+
+	$0
+end
+endsnippet
+
+snippet it
+it "$1" do
+	$0
+end
+endsnippet
+
+snippet xit
+it "$1"
+endsnippet
+
+snippet expect
+expect do
+	$1
+end.to $2
+endsnippet

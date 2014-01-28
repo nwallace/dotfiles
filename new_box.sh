@@ -26,11 +26,13 @@ setup_vim() {
 
 setup_dotfiles() {
   mkdir projects
+  cur_dir="`pwd`"
   git clone git@github.com:nwallace/dotfiles projects/dotfiles
-  ln -sf `pwd`/projects/dotfiles/.vimrc .vimrc
-  ln -sf `pwd`/projects/dotfiles/.zshrc .zshrc
-  ln -sf `pwd`/projects/dotfiles/.gitconfig .gitconfig
-  ln -sf `pwd`/projects/dotfiles/nathan.zsh-theme .oh-my-zsh/themes
+  ln -sf $cur_dir/projects/dotfiles/.vimrc .vimrc
+  ln -sf $cur_dir/projects/dotfiles/.zshrc .zshrc
+  ln -sf $cur_dir/projects/dotfiles/.gitconfig .gitconfig
+  ln -sf $cur_dir/projects/dotfiles/nathan.zsh-theme .oh-my-zsh/themes
+  ln -sf $cur_dir/projects/dotfiles/UltiSnips .vim/UltiSnips
 }
 
 main
