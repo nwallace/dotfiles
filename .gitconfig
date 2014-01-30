@@ -13,8 +13,11 @@
   co = checkout
   st = status
   di = diff
-  lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  dc = diff --cached
+  ds = diff --stat
+  lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)- %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   aa = add --all
   cm = commit -m
   ca = commit --amend
   az = archive --format zip --output
+  unstage = reset HEAD

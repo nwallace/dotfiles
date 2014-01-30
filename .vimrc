@@ -125,6 +125,7 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 " rails commands
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gs :topleft :split db/schema.rb<cr>
+map <leader>ga :topleft :split app/controllers/application_controller.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gv :topleft 100 :split ~/.vimrc<cr>
 
