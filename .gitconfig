@@ -17,3 +17,4 @@
   aa = add --all
   cm = commit -m
   ca = commit --amend
+  az = archive --format zip --output

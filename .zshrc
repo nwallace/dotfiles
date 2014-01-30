@@ -38,12 +38,17 @@ stty -ixon
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-PATH=$PATH:$HOME/.rvm/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.bin
+export PATH=$PATH
 
 export EDITOR=vim
 export VISUAL=vim
 
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
+
 alias git='nocorrect git'
+alias vi='vim'
+alias rails='nocorrect rails'
+alias tma='tmux attach'
 alias ping-g='ping -c1 www.google.com'

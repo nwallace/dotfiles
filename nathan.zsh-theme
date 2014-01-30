@@ -12,9 +12,9 @@ username() {
 }
 theme_precmd () {
     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
-        zstyle ':vcs_info:*' formats ' [%b%c%u%B%f]'
+        zstyle ':vcs_info:*' formats ' [%b%c%u%f]'
     } else {
-        zstyle ':vcs_info:*' formats ' [%b%c%u%B%F{red}●%f]'
+        zstyle ':vcs_info:*' formats ' [%b%c%u%F{red}●%f]'
     }
 
     vcs_info

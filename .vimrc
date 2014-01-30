@@ -63,6 +63,9 @@ nnoremap <c-l> <c-w>l
 
 imap <c-f> <space>=><space>
 
+" write file with sudo
+cmap w!! w !sudo tee > /dev/null %
+
 let mapleader=","
 
 " quickly reopen most recent file
