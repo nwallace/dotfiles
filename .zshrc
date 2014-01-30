@@ -44,8 +44,14 @@ export PATH=$PATH
 export EDITOR=vim
 export VISUAL=vim
 
-source /usr/share/chruby/chruby.sh
-source /usr/share/chruby/auto.sh
+if [ -d /usr/share/chruby ]; then
+  source /usr/share/chruby/chruby.sh
+  source /usr/share/chruby/auto.sh
+fi
+
+if [ -d $HOME/.rvm ]; then
+  source $HOME/.rvm/scripts/rvm
+fi
 
 alias git='nocorrect git'
 alias vi='vim'
