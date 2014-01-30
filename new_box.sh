@@ -31,6 +31,7 @@ setup_dotfiles() {
   ln -sf `pwd`/projects/dotfiles/.zshrc .zshrc
   ln -sf `pwd`/projects/dotfiles/.gitconfig .gitconfig
   ln -sf `pwd`/projects/dotfiles/nathan.zsh-theme .oh-my-zsh/themes
+  ln -sf `pwd`/projects/dotfiles/UltiSnips .vim/UltiSnips
 }
 
 main
