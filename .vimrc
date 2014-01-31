@@ -167,6 +167,10 @@ map <leader>a :call RunTests('spec')<cr>
 
 " expand curly braces to a do-end
 map <leader>rd ^f{sdolrAend
+" pull variable into a let (inline)
+map <leader>rli Ilet(:Ea)wr{A }^
+" pull variable into a let (yanked to nearest context)
+map <leader>rlp Ilet(:Ea)wr{A }^dd?\(context\\|describe\)pv<``
 
 execute pathogen#infect()
 
