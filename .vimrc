@@ -136,27 +136,37 @@ function! RunTests(filename)
     exec ":!bundle exec rspec " . a:filename
 endfunction
 function! SetTestFile()
-    " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
+  " Set the spec file that tests will be run for.
+  let t:grb_test_file=@%
+endfunction
+function! SetTestLine(line)
+  let t:grb_test_line=a:line
 endfunction
 function! RunTestFile(...)
-    if a:0
-        let command_suffix = a:1
-    else
-        let command_suffix = ""
-    endif
-    " Run the tests for the previously-marked file.
-    let in_spec_file = match(expand("%"), '_spec.rb$') != -1
+  let in_spec_file = match(expand("%"), '_spec.rb$') != -1
+  if a:0
     if in_spec_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
-        return
-    end
-    call RunTests(t:grb_test_file . command_suffix)
+      call SetTestLine(a:1)
+    endif
+    if exists("t:grb_test_line")
+      let command_suffix = t:grb_test_line
+    else
+      let command_suffix = ""
+    endif
+  else
+    let command_suffix = ""
+  endif
+  " Run the tests for the previously-marked file.
+  if in_spec_file
+    call SetTestFile()
+  elseif !exists("t:grb_test_file")
+    return
+  end
+  call RunTests(t:grb_test_file . command_suffix)
 endfunction
 function! RunNearestTest()
-    let spec_line_number = line('.')
-    call RunTestFile(":" . spec_line_number)
+  let spec_line_number = line('.')
+  call RunTestFile(":" . spec_line_number)
 endfunction
 " Run this file
 map <leader>t :call RunTestFile()<cr>
