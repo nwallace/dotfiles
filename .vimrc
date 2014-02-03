@@ -42,6 +42,8 @@ set t_Co=256 " 256 colors
 " show trailing whitespace
 :highlight ExtraWhitespace ctermbg=gray guibg=gray
 :match ExtraWhitespace /\s\+\%#\@<!$/
+:au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+:au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " show tabs (use spaces)
 :highlight Tabs ctermbg=gray guibg=gray

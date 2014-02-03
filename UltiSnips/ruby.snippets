@@ -2,6 +2,12 @@ snippet {
 { $0 }
 endsnippet
 
+snippet d
+do
+ $0
+end
+endsnippet
+
 snippet pry
 binding.pry
 endsnippet
@@ -12,7 +18,7 @@ require "spec_helper"
 describe ${1:`!p title = re.sub('_spec\.rb$', '', fn)
 snip.rv = ''.join(x.capitalize() or '_' for x in title.split('_'))`} do
 
-	$0
+  $0
 end
 endsnippet
 
@@ -22,14 +28,12 @@ endsnippet
 
 snippet describe
 describe $1 do
-
 	$0
 end
 endsnippet
 
 snippet context
 context "$1" do
-
 	$0
 end
 endsnippet
