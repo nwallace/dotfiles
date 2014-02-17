@@ -26,6 +26,9 @@ set backupdir=~/.tmp
 set directory=~/.tmp
 set backspace=indent,eol,start
 set background=light
+" open splits to the right and bottom
+set splitbelow
+set splitright
 " use emacs-style tab completion when selecting files, etc
 set wildmode=longest,list
 " make tab completion for files/buffers act like bash
@@ -64,6 +67,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 imap <c-f> <space>=><space>
+
+nnoremap <c-i> ?\s\{2,\}<cr>:nohls<cr>wi
 
 " write file with sudo
 cmap w!! w !sudo tee > /dev/null %
@@ -177,12 +182,25 @@ map <leader>T :call RunNearestTest()<cr>
 " Run all test files
 map <leader>a :call RunTests('spec')<cr>
 
+" visual-mode star search
+function! s:VisualStarSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', '\g')
+  let @s = temp
+endfunction
+xnoremap * :<c-u>call <SID>VisualStarSearch('/')<cr>/<c-r>=@/<cr><cr>
+xnoremap # :<c-u>call <SID>VisualStarSearch('?')<cr>?<c-r>=@/<cr><cr>
+
 " expand curly braces to a do-end
 map <leader>rd ^f{sdolrAend
 " pull variable into a let (inline)
 map <leader>rli Ilet(:Ea)wr{A }^
 " pull variable into a let (yanked to nearest context)
 map <leader>rlp Ilet(:Ea)wr{A }^dd?\(context\\|describe\)pv<``
+" begin search and replace macro to remove hash-rocket syntax
+map <leader>fhr /:\w\+\s\+=>
+map <leader>rhr xepWdWbb
 
 execute pathogen#infect()
 
