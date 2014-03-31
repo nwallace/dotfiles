@@ -53,3 +53,16 @@ expect do
   $1
 end.to $2
 endsnippet
+
+snippet feature
+feature "$1"${2:, :js} do
+
+  $0
+end
+endsnippet
+
+snippet scenario
+scenario "$1" do
+  $0
+end
+endsnippet

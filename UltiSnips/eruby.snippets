@@ -7,3 +7,13 @@ endsnippet
 snippet %
 <% $0 %>
 endsnippet
+
+snippet form_for
+<%= form_for $1 do |f| %>
+  $0
+<% end %>
+endsnippet
+
+snippet render
+<%= render ${1:"${2:some/partial}"} %>
+endsnippet
