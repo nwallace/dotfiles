@@ -201,6 +201,7 @@ map <leader>rlp Ilet(:Ea)wr{A }^dd?\(context\\|describe\)pv<``
 " begin search and replace macro to remove hash-rocket syntax
 map <leader>fhr /:\w\+\s\+=>
 map <leader>rhr xepWdWbb
+map <leader>rt /\t<cr>s  
 
 execute pathogen#infect()
 

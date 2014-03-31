@@ -54,7 +54,12 @@ if [ -d $HOME/.rvm ]; then
 fi
 
 alias git='nocorrect git'
-alias vi='vim'
+alias v='vim'
 alias rails='nocorrect rails'
 alias tma='tmux attach'
 alias ping-g='ping -c1 www.google.com'
+alias be='bundle exec'
+
+source $HOME/bin/functions.sh
+
+archey && work

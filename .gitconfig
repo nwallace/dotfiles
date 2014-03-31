@@ -10,14 +10,15 @@
 [push]
   default = upstream
 [alias]
+  aa = add --all
+  az = archive --format zip --output
+  ci = commit
+  cm = commit -m
+  ca = commit --amend
   co = checkout
-  st = status
   di = diff
   dc = diff --cached
   ds = diff --stat
   lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)- %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-  aa = add --all
-  cm = commit -m
-  ca = commit --amend
-  az = archive --format zip --output
+  st = status
   unstage = reset HEAD
