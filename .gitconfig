@@ -7,6 +7,7 @@
   editor = vim
   autocrlf = input
   pager = less -F -X
+  excludesfile = ~/.gitignore
 [push]
   default = upstream
 [alias]
@@ -20,5 +21,10 @@
   dc = diff --cached
   ds = diff --stat
   lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)- %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  l  = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)- %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative -10
   st = status
   unstage = reset HEAD
+[git-pair]
+  authors = Tim Conner <tim.conner@leandogsoftware.com>
+  authors = Dan Parks <dan.parks@leandogsoftware.com>
+  authors = Nathan Wallace <nathan.wallace@leandogsoftware.com>

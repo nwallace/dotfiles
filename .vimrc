@@ -41,6 +41,7 @@ set winheight=5
 set winminheight=5
 set winheight=999
 set t_Co=256 " 256 colors
+set relativenumber
 
 " show trailing whitespace
 :highlight ExtraWhitespace ctermbg=gray guibg=gray
@@ -128,6 +129,11 @@ map <leader>cc :CtrlPClearCache<cr>
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-l>"
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = "bubblegum"
 
 " rails commands
 map <leader>gr :topleft :split config/routes.rb<cr>
