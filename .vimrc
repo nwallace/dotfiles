@@ -206,8 +206,21 @@ map <leader>rli Ilet(:Ea)wr{A }^
 map <leader>rlp Ilet(:Ea)wr{A }^dd?\(context\\|describe\)pv<``
 " begin search and replace macro to remove hash-rocket syntax
 map <leader>fhr /:\w\+\s\+=>
+" replace hash rocket
 map <leader>rhr xepWdWbb
+" replace tabs with spaces
 map <leader>rt /\t<cr>s  
+
+" blog mode
+function! BlogMode()
+  :se textwidth=80 linebreak
+  " delete all text, then paste it in insert mode (to create wrapping)
+  norm! ggVGs"
+  " delete extra line that gets added
+  norm! Gdd
+  :w
+endfunction
+map <leader>b :call BlogMode()<cr>
 
 execute pathogen#infect()
 
