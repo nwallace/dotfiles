@@ -40,8 +40,11 @@ set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
-set t_Co=256 " 256 colors
 set relativenumber
+
+" colors
+set t_Co=256 " 256 colors
+colo tomorrow-night-nw
 
 " show trailing whitespace
 :highlight ExtraWhitespace ctermbg=gray guibg=gray
