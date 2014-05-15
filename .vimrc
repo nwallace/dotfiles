@@ -37,8 +37,8 @@ set wildmenu
 :set timeout timeoutlen=1000 ttimeoutlen=100
 " window sizing
 set winwidth=84
-set winheight=5
-set winminheight=5
+set winheight=8
+set winminheight=8
 set winheight=999
 set relativenumber
 
