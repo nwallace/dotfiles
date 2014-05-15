@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 main() {
   orig_dir=$PWD
@@ -8,7 +8,7 @@ main() {
       cd $i && git pull
     fi
   done
-  cd orig_dir
+  cd $orig_dir
 }
 
 main

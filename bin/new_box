@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 main() {
   initial_dir=`pwd`
@@ -8,7 +8,7 @@ main() {
   fi
   setup_oh-my-zsh
   setup_vim
-  setup_dotfiles
+  setup_home
   cd $initial_dir
 }
 
@@ -29,7 +29,7 @@ setup_vim() {
   git clone git@github.com:SirVer/ultisnips.git         .vim/bundle/ultisnips
 }
 
-setup_dotfiles() {
+setup_home() {
   mkdir -v projects
   cur_dir="`pwd`"
   git clone git@github.com:nwallace/dotfiles projects/dotfiles
@@ -39,6 +39,7 @@ setup_dotfiles() {
   ln -sf $cur_dir/projects/dotfiles/.gitconfig       .gitconfig
   ln -sf $cur_dir/projects/dotfiles/nathan.zsh-theme .oh-my-zsh/themes
   ln -sf $cur_dir/projects/dotfiles/UltiSnips        .vim/UltiSnips
+  ln -sf $cur_dir/projects/dotfiles/bin              bin
 }
 
 main
