@@ -125,26 +125,6 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-" ctrlp
-set wildignore+=*/tmp/*,*\\tmp\\*,*.swp,*.so,*.exe,*.zip,*-meta.xml
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-map <leader>cc :CtrlPClearCache<cr>
-
-" ultisnips
-let g:UltiSnipsExpandTrigger="<c-l>"
-
-" airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = "bubblegum"
-
-" rails commands
-map <leader>gr :topleft :split config/routes.rb<cr>
-map <leader>gs :topleft :split db/schema.rb<cr>
-map <leader>ga :topleft :split app/controllers/application_controller.rb<cr>
-map <leader>gg :topleft 100 :split Gemfile<cr>
-map <leader>gv :topleft 100 :split ~/.vimrc<cr>
-
 function! RunTests(filename)
     " Write the file and run tests for the given filename
     :w
@@ -201,6 +181,13 @@ endfunction
 xnoremap * :<c-u>call <SID>VisualStarSearch('/')<cr>/<c-r>=@/<cr><cr>
 xnoremap # :<c-u>call <SID>VisualStarSearch('?')<cr>?<c-r>=@/<cr><cr>
 
+" rails commands
+map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gs :topleft :split db/schema.rb<cr>
+map <leader>ga :topleft :split app/controllers/application_controller.rb<cr>
+map <leader>gg :topleft 100 :split Gemfile<cr>
+map <leader>gv :topleft 100 :split ~/.vimrc<cr>
+
 " expand curly braces to a do-end
 map <leader>rd ^f{sdolrAend
 " pull variable into a let (inline)
@@ -224,6 +211,19 @@ function! BlogMode()
   :w
 endfunction
 map <leader>b :call BlogMode()<cr>
+
+" ctrlp
+set wildignore+=*/tmp/*,*\\tmp\\*,*.swp,*.so,*.exe,*.zip,*-meta.xml
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+map <leader>cc :CtrlPClearCache<cr>
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<c-l>"
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = "bubblegum"
 
 execute pathogen#infect()
 
