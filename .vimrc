@@ -44,7 +44,7 @@ set relativenumber
 
 " colors
 set t_Co=256 " 256 colors
-colo tomorrow-night-nw
+colo hybrid
 
 " show trailing whitespace
 :highlight ExtraWhitespace ctermbg=gray guibg=gray
