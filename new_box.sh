@@ -22,8 +22,10 @@ setup_vim() {
   git clone git@github.com:bling/vim-airline.git        .vim/bundle/airline
   git clone git@github.com:kchmck/vim-coffee-script.git .vim/bundle/coffee
   git clone git@github.com:kien/ctrlp.vim.git           .vim/bundle/ctrlp
+  git clone git@github.com:tpope/vim-endwise.git        .vim/bundle/endwise
   git clone git@github.com:tpope/vim-fugitive.git       .vim/bundle/fugitive
   git clone git@github.com:tpope/vim-rails.git          .vim/bundle/rails
+  git clone git@github.com:tpope/vim-surround.git       .vim/bundle/surround
   git clone git@github.com:SirVer/ultisnips.git         .vim/bundle/ultisnips
 }
 
