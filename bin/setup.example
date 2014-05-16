@@ -1,1 +1,3 @@
 DEFAULT_USER=nathan
+
+alias diff=colordiff
