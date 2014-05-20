@@ -160,6 +160,8 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 " Run all test files
 map <leader>a :call RunTests('spec')<cr>
+" Run cucumber wip
+map <leader>c :w\|:!cucumber -p wip<cr>
 
 " visual-mode star search
 function! s:VisualStarSearch(cmdtype)
