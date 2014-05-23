@@ -6,6 +6,7 @@ plugins=(git zsh-syntax-highlighting)
 stty -ixon
 
 source $HOME/bin/setup
+source $HOME/bin/functions
 
 source $ZSH/oh-my-zsh.sh
 
