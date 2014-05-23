@@ -1,6 +1,6 @@
 work() {
-  if [ -n "$ACTIVE_PROJ" ]; then
-    cd $ACTIVE_PROJ
+  if [ -n $HOME/projects/"$ACTIVE_PROJ" ]; then
+    cd $HOME/projects/$ACTIVE_PROJ
   else
     echo "ACTIVE_PROJ not set"
     exit 1
