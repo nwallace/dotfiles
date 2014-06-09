@@ -187,9 +187,9 @@ map <leader>rli Ilet(:Ea)wr{A }^
 " pull variable into a let (yanked to nearest context)
 map <leader>rlp Ilet(:Ea)wr{A }^dd?\(context\\|describe\)pv<``
 " begin search and replace macro to remove hash-rocket syntax
-map <leader>fhr /:\w\+\s\+=>
+map <leader>hrf /:\w\+\s\+=>
 " replace hash rocket
-map <leader>rhr xepWdWbb
+map <leader>hrr xepWdWbb
 " replace tabs with spaces
 map <leader>rt /\t<cr>s  
 
