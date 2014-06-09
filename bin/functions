@@ -1,8 +1,19 @@
 work() {
-  if [ -n $HOME/projects/"$ACTIVE_PROJ" ]; then
-    cd $HOME/projects/$ACTIVE_PROJ
+  if [ $ACTIVE_PROJ ]; then
+    proj_dir=$HOME/projects
+    if [ -d $proj_dir/$ACTIVE_PROJ ]; then
+      clear
+      cd $proj_dir/$ACTIVE_PROJ
+      unset -v proj_dir
+      git status
+    else
+      echo "could not find project $ACTIVE_PROJ in $proj_dir"
+      unset -v proj_dir
+      (exit 2)
+    fi
   else
-    echo "ACTIVE_PROJ not set"
-    exit 1
+    echo "ACTIVE_PROJ not defined"
+    unset -v proj_dir
+    (exit 1)
   fi
 }
