@@ -1,14 +1,21 @@
 work() {
-  if [ $ACTIVE_PROJ ]; then
+  if [ $1 ] || [ $ACTIVE_PROJ ]; then
     proj_dir=$HOME/projects
-    if [ -d $proj_dir/$ACTIVE_PROJ ]; then
+    if [ $1 ]; then
+      targ=$1
+    else
+      targ=$ACTIVE_PROJ
+    fi
+    if [ -d $proj_dir/$targ ]; then
       clear
-      cd $proj_dir/$ACTIVE_PROJ
+      cd $proj_dir/$targ
       unset -v proj_dir
+      unset -v targ
       git status
     else
-      echo "could not find project $ACTIVE_PROJ in $proj_dir"
+      echo "could not find project $targ in $proj_dir"
       unset -v proj_dir
+      unset -v targ
       (exit 2)
     fi
   else
