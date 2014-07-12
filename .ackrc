@@ -1,0 +1,3 @@
+--ignore-dir=log
+--ignore-dir=notes
+--ignore-dir=tmp

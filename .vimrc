@@ -42,6 +42,9 @@ set winminheight=5
 set winheight=999
 set relativenumber
 
+" use ack instead of grep
+set grepprg=ack
+
 " colors
 set t_Co=256 " 256 colors
 colo hybrid

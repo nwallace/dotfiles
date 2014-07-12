@@ -40,6 +40,7 @@ setup_home() {
   ln -sf $cur_dir/projects/dotfiles/nathan.zsh-theme .oh-my-zsh/themes
   ln -sf $cur_dir/projects/dotfiles/UltiSnips        .vim/UltiSnips
   ln -sf $cur_dir/projects/dotfiles/bin              bin
+  ln -sf $cur_dir/projects/dotfiles/.ackrc           .ackrc
   cp projects/dotfiles/bin/setup{.example,}
 }
 
