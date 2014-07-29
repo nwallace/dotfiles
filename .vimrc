@@ -182,6 +182,7 @@ map <leader>gs :topleft :split db/schema.rb<cr>
 map <leader>ga :topleft :split app/controllers/application_controller.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gv :topleft 100 :split ~/.vimrc<cr>
+map <leader>gn :to sp notes/to_do.txt<cr>
 
 " expand curly braces to a do-end
 map <leader>rd ^f{sdolrAend
