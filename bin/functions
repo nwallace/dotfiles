@@ -1,26 +1,21 @@
 work() {
   if [ $1 ] || [ $ACTIVE_PROJ ]; then
-    proj_dir=$HOME/projects
+    local proj_dir=$HOME/projects
     if [ $1 ]; then
-      targ=$1
+      local targ=$1
     else
-      targ=$ACTIVE_PROJ
+      local targ=$ACTIVE_PROJ
     fi
     if [ -d $proj_dir/$targ ]; then
       clear
       cd $proj_dir/$targ
-      unset -v proj_dir
-      unset -v targ
       git status
     else
       echo "could not find project $targ in $proj_dir"
-      unset -v proj_dir
-      unset -v targ
-      (exit 2)
+      return 2
     fi
   else
     echo "ACTIVE_PROJ not defined"
-    unset -v proj_dir
-    (exit 1)
+    return 1
   fi
 }
