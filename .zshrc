@@ -6,11 +6,12 @@ plugins=(git zsh-syntax-highlighting)
 stty -ixon
 
 source $HOME/bin/setup
-source $HOME/bin/functions
 
 source $ZSH/oh-my-zsh.sh
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin
+
+source $HOME/bin/functions
 
 export EDITOR=vim
 export VISUAL=vim
