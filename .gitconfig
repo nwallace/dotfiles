@@ -13,7 +13,7 @@
 [sendemail]
   smtpencryption = tls
   smtpserver = smtp.gmail.com
-  smtpuser = nathan@nosuchthingastwo.com
+  smtpuser = nathan.wallace@leandogsoftware.com
   smtpserverport = 587
 [alias]
   aa = add --all
@@ -50,3 +50,4 @@
   authors = Tim Conner <tim.conner@leandogsoftware.com>
   authors = Dan Parks <dan.parks@leandogsoftware.com>
   authors = Nathan Wallace <nathan.wallace@leandogsoftware.com>
+  authors = Joel Byler <joel.byler@leandog.com>
