@@ -10,6 +10,11 @@
   excludesfile = ~/.gitignore
 [push]
   default = upstream
+[sendemail]
+  smtpencryption = tls
+  smtpserver = smtp.gmail.com
+  smtpuser = nathan@nosuchthingastwo.com
+  smtpserverport = 587
 [alias]
   aa = add --all
   az = archive --format zip --output

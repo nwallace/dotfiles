@@ -65,7 +65,7 @@ nnoremap <c-l> <c-w>l
 
 imap <c-f> <space>=><space>
 
-nnoremap <c-i> ?\s\{2,\}<cr>:nohls<cr>wi
+" nnoremap <c-i> ?\s\{2,\}<cr>:nohls<cr>wi
 
 " write file with sudo
 cmap w!! w !sudo tee > /dev/null %
