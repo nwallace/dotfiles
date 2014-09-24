@@ -16,7 +16,7 @@ source $HOME/bin/functions
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
-export LESS="-iMSx2FX" # search ignores case, long prompt, no wrap, tabstop 2, only page multi screen, don't clear on exit
+export LESS="-RiMSx2FX" # search ignores case, long prompt, no wrap, tabstop 2, only page multi screen, don't clear on exit
 
 if [ -d /usr/share/chruby ]; then
   source /usr/share/chruby/chruby.sh
