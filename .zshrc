@@ -1,16 +1,14 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
-plugins=(git zsh-syntax-highlighting lein bundler rake gem capistrano brew)
+plugins=(git zsh-syntax-highlighting lein bundler rake gem capistrano brew git-flow aws)
 
 stty -ixon
 
-source $HOME/bin/setup
+export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 source $ZSH/oh-my-zsh.sh
-
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin
-
+source $HOME/bin/setup
 source $HOME/bin/functions
 
 export EDITOR=vim
