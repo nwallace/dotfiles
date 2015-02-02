@@ -14,6 +14,17 @@ snippet pry
 binding.pry
 endsnippet
 
+snippet tpry
+.tap{|o|binding.pry}
+endsnippet
+
+snippet class
+class ${1:`!p title = re.sub('\.rb$', '', fn)
+snip.rv = ''.join(x.capitalize() or '_' for x in title.split('_'))`}
+	$0
+end
+endsnippet
+
 snippet spec
 require "spec_helper"
 

@@ -70,6 +70,14 @@ imap <c-f> <space>=><space>
 " write file with sudo
 cmap w!! w !sudo tee > /dev/null %
 
+" mkdir, write file with ww
+function! MkdirWrite()
+  silent !mkdir %:h
+  w
+  redraw!
+endfunction
+command! W call MkdirWrite()
+
 let mapleader=","
 
 " quickly reopen most recent file
@@ -224,11 +232,4 @@ let g:airline_theme = "bubblegum"
 execute pathogen#infect()
 
 " show trailing whitespace
-:highlight ExtraWhitespace ctermbg=gray guibg=gray
-:match ExtraWhitespace /\s\+\%#\@<!$/
-:au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-:au InsertLeave * match ExtraWhitespace /\s\+$/
-
-" show tabs (use spaces)
-:highlight Tabs ctermbg=gray guibg=gray
-:match Tabs /\t/
+:set list listchars=tab:»·,trail:·
