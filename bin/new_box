@@ -19,7 +19,7 @@ setup_oh-my-zsh() {
 
 setup_vim() {
   mkdir -pv .vim/bundle .vim/autoload .tmp
-  curl -Sso .vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
   git clone https://github.com/bling/vim-airline.git        .vim/bundle/airline
   git clone https://github.com/kchmck/vim-coffee-script.git .vim/bundle/coffee
   git clone https://github.com/kien/ctrlp.vim.git           .vim/bundle/ctrlp
