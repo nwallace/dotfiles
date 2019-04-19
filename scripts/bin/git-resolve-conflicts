@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+set -e
+
+main() {
+  editor_args=""
+
+  if [[ "$EDITOR" == nvim || "$EDITOR" == vim ]]; then
+    editor_args='+/^\(<<<<<<<\|=======\|>>>>>>>\).*'
+  fi
+
+  $EDITOR "$editor_args" $(git status | grep 'both modified' | cut -d : -f 2)
+}
+
+main

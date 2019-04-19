@@ -1,0 +1,128 @@
+// Note: to find icon glyphs, visit http://nerdfonts.com/#cheat-sheet, find the icon & its code, then in insert mode, type ^VuCODE
+{
+  "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar at the bottom of your screen
+    "height": 20, // Waybar height
+    // "width": 1280, // Waybar width
+
+    // Choose modules
+    // Available modules: sway/window
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
+    "modules-center": ["clock", "custom/weather"],
+    "modules-right": ["custom/peripherals", "custom/headset", "idle_inhibitor", "pulseaudio", "cpu", "memory", "network", "battery", "tray"], // TODO: add vpn, sshd
+
+    // Modules configuration
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": false,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "", // or "",
+        "9": "",
+        "10": ""
+      }
+    },
+    "sway/mode": {
+      "format": "<span style=\"italic\">{}</span>"
+    },
+    "tray": {
+      // "icon-size": 21,
+      "spacing": 10
+    },
+    "clock": {
+      "format": "{:%A %B %-d, %Y %-l:%M %p}",
+      "format-alt": "{:%b. %-d, %Y %-l:%M}"
+    },
+    "cpu": {
+      "format": "{usage}% ",
+      "on-click": "gnome-system-monitor --show-processes-tab"
+    },
+    "memory": {
+      "format": "{}% ",
+      "on-click": "gnome-system-monitor --show-processes-tab"
+    },
+    "battery": {
+      "states": {
+        // "good": 95,
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{capacity}% {icon}",
+      // "format-good": "", // An empty format will hide the module
+      // "format-full": "",
+      "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+      "bat": "BAT2"
+    },
+    "network": {
+      // "interface": "wlp2s0", // (Optional) To force the use of this interface
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-ethernet": "Wired ",
+      "format-disconnected": "- ⚠",
+      "on-click": "termite -e nmtui-connect --role popup",
+      "on-click-right": "termite -e nm-connection-editor",
+      "interval": 5
+    },
+    "pulseaudio": {
+      //"scroll-step": 1,
+      "format": "{volume}% {icon}",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-muted": "",
+      "format-icons": {
+        "headphones": "",
+        "handsfree": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+      },
+      "on-click": "pavucontrol",
+      "on-click-right": "$HOME/bin/swap-speakers"
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": "ﮌ"
+      }
+    },
+    "custom/weather": {
+      "format": "{}",
+      "exec": "$HOME/bin/weather-status.sh",
+      "return-type": "json",
+      "interval": 3600,
+      "on-click": "xdg-open https://darksky.net/"
+    },
+    "custom/spotify": {
+      "format": "{icon} {}",
+      "format-icons": ["", ""],
+      "exec": "$HOME/bin/spotify-status.sh --json",
+      "max-length": 40,
+      "return-type": "json",
+      "on-click": "playerctl -p spotify play-pause",
+      "on-click-right": "playerctl -p spotify next"
+    },
+    "custom/peripherals": {
+      "format": "{icon} ",
+      "format-icons": ["", ""],
+      "exec": "$HOME/bin/peripherals-status.sh",
+      "return-type": "json"
+    },
+    "custom/headset": {
+      "format": "{icon} ",
+      "format-icons": ["", ""],
+      "exec": "$HOME/bin/audio-status.sh",
+      "return-type": "json"
+    },
+    "custom/idle": {
+      "format": "{icon} ",
+      "format-icons": ["零", "鈴"], // or  and ﮌ
+      "exec": "$HOME/bin/idlectl monitor",
+      "on-click": "$HOME/bin/idlectl toggle",
+      "return-type": "json"
+    }
+}

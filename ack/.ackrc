@@ -1,0 +1,7 @@
+--sort-files
+--ignore-dir=log
+--ignore-dir=notes
+--ignore-dir=tmp
+--ignore-dir=target
+--ignore-dir=coverage
+--ignore-file=match:/\..*[-_]history/

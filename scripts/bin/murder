@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+
+prompt_to_kill() {
+  p_id="$(echo $1 | cut -d ' ' -f1)"
+  cmd="$(echo $1 | cut -d ' ' -f2-)"
+
+  echo "$cmd"
+  echo -n "Kill? (y/N) "
+  read answer < /dev/tty
+  case "$answer" in
+    [yY]* )
+      kill $p_id
+      echo "Killed $p_id" ;;
+    * )
+      echo "Skipped $p_id" ;;
+  esac
+}
+
+ps aux | grep "$1" | grep -v "\($0 $1\| grep \)" | awk '{print $2, substr($0, index($0, $11))}' | while read line; do prompt_to_kill "$line"; done

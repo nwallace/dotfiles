@@ -1,0 +1,2 @@
+rofi.theme: /home/nathan/.config/rofi/theme.rasi
+rofi.modi: window,run,ssh,drun

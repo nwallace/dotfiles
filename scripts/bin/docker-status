@@ -1,0 +1,3 @@
+#! /bin/bash
+
+docker ps --format '{{.Names}}|{{.Status}}' -a | column -t -s '|' | hls -lf green Up | hls -ilsf grey Exited

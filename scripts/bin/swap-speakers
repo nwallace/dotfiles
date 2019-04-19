@@ -1,0 +1,34 @@
+#! /bin/bash
+
+set -e
+
+getDevice() {
+  pactl list short sinks | grep "$1" | awk '{print $2}'
+}
+
+useDevice() {
+  device="$(getDevice "$1")"
+  if [[ -z "$device" ]]; then
+    device="$(getDevice "$2")"
+  fi
+  if [[ -n "$device" ]]; then
+    pacmd set-default-sink "$device"
+    pactl list short sink-inputs | awk '{print $1}' | while read id; do
+      pactl move-sink-input "$id" "$device"
+    done
+  else
+    exit 1
+  fi
+}
+
+main() {
+  if [[ "$(getDevice "RUNNING")" =~ "SteelSeries" ]]; then
+    useDevice "Bose" "pci"
+  elif [[ "$(getDevice "RUNNING")" =~ "Bose" ]]; then
+    useDevice "SteelSeries.*stereo" "pci"
+  else
+    useDevice "SteelSeries.*stereo" "Bose"
+  fi
+}
+
+main

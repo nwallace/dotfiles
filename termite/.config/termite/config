@@ -1,0 +1,174 @@
+[options]
+#allow_bold = true
+#audible_bell = false
+clickable_url = true
+#dynamic_title = true
+#font = RobotoMono Nerd Font 10
+#font = Inconsolata Nerd Font 10
+font = mononoki Nerd Font 9
+#fullscreen = true
+#geometry = 640x480
+#icon_name = terminal
+mouse_autohide = true
+#scroll_on_output = false
+#scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = -1
+#search_wrap = true
+#urgent_on_bell = true
+hyperlinks = true
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+#browser = xdg-open
+
+# "system", "on" or "off"
+#cursor_blink = system
+
+# "block", "underline" or "ibeam"
+#cursor_shape = block
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+#size_hints = false
+
+# "off", "left" or "right"
+#scrollbar = off
+
+[colors]
+# If both of these are unset, cursor falls back to the foreground color,
+# and cursor_foreground falls back to the background color.
+#cursor = #dcdccc
+#cursor_foreground = #dcdccc
+
+#foreground = #dcdccc
+#foreground_bold = #ffffff
+#background = #3f3f3f
+
+# 20% background transparency (requires a compositor)
+#background = rgba(63, 63, 63, 0.8)
+
+# If unset, will reverse foreground and background
+highlight = #2f2f2f
+
+# # Base16 Tomorrow Night - https://github.com/khamer/base16-termite
+# foreground      = #c5c8c6
+# foreground_bold = #e0e0e0
+# cursor          = #e0e0e0
+# background      = rgba(29,31,33,0.92)
+# # Black, Gray, Silver, White
+# color0  = #1d1f21
+# color8  = #969896
+# color7  = #c5c8c6
+# color15 = #ffffff
+# # Red
+# color1  = #cc6666
+# color9  = #a54242
+# # Green
+# color2  = #b5bd68
+# color10 = #8c9440
+# # Yellow
+# color3  = #f0c674
+# color11 = #de935f
+# # Blue
+# color4  = #81a2be
+# color12 = #5f819d
+# # Purple
+# color5  = #b294bb
+# color13 = #85678f
+# # Teal
+# color6  = #8abeb7
+# color14 = #5e8d87
+# # Extra colors
+# color16 = #de935f
+# color17 = #a3685a
+# color18 = #282a2e
+# color19 = #373b41
+# color20 = #b4b7b4
+# color21 = #e0e0e0
+
+[colors]
+# Base16 Nord - https://github.com/khamer/base16-termite
+# Author: arcticicestudio
+
+# foreground      = #E5E9F0
+# foreground_bold = #ECEFF4
+# cursor          = #ECEFF4
+# background      = #2E3440
+# # 16 color space
+# # Black, Gray, Silver, White
+# color0  = #2E3440
+# color8  = #4C566A
+# color7  = #E5E9F0
+# color15 = #8FBCBB
+# # Red
+# color1  = #BF616A
+# color9 = #BF616A
+# # Green
+# color2  = #A3BE8C
+# color10 = #A3BE8C
+# # Yellow
+# color3  = #EBCB8B
+# color11 = #EBCB8B
+# # Light blue
+# color4  = #88C0D0
+# color12  = #88C0D0
+# # Blue
+# color5  = #5E81AC
+# color13 = #5E81AC
+# # Orange
+# color6  = #D08770
+# color14 = #D08770
+# Extra colors
+color16 = #81a1c1
+color17 = #b48ead
+color18 = #3b4252
+color19 = #434c5e
+color20 = #d8dee9
+color21 = #eceff4
+
+foreground        = #d8dee9
+background        = #2e3440
+background        = rgba(46,52,64,0.96)
+foreground_bold   = #d8dee9
+cursor            = #d8dee9
+cursor_foreground = #2e3440
+highlight         = #4c566a
+
+color0  = #3b4252
+
+color1  = #bf616a
+color9  = #a9444e
+color2  = #a3be8c
+color10 = #89ac6b
+color3  = #ebcb8b
+color11 = #e4b860
+color4  = #81a1c1
+color12 = #5f88b0
+color5  = #b48ead
+color13 = #a06f97
+
+color6  = #88c0d0
+color7  = #e5e9f0
+color8  = #4c566a
+color14 = #8fbcbb
+color15 = #eceff4
+
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s

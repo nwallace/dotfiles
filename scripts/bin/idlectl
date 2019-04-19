@@ -1,0 +1,77 @@
+#! /bin/bash
+
+fifo=/tmp/idle-monitor
+
+stop() {
+  killall swayidle 2>/dev/null >/dev/null
+  report_status_to_fifo
+}
+
+restart() {
+  killall swayidle 2>/dev/null >/dev/null
+
+  swaymsg "exec swayidle timeout 240 'brightnessctl get > /tmp/brightness && sudo brightnessctl set 10%' resume 'sudo brightnessctl set $([ -f /tmp/brightness ] && cat /tmp/brightness || echo 100%)' timeout 420 'systemctl suspend'"
+
+  report_status_to_fifo
+}
+
+set_up_fifo() {
+  if [[ ! -p $fifo ]] ; then
+    mkfifo $fifo
+  fi
+}
+
+report_status() {
+  if pgrep swayidle > /dev/null ; then
+    echo '{"percentage": 100, "tooltip": "Will go to sleep if left idle"}'
+  else
+    echo '{"percentage": 0, "tooltip": "Idle management is OFF"}'
+  fi
+}
+
+report_status_to_fifo() {
+  # only write to the FIFO if someone is listening
+  if [[ -p $fifo ]]; then
+    report_status > $fifo
+  fi
+}
+
+shutdown_monitor() {
+  kill -s SIGTERM $! 2>/dev/null
+  [[ -p $fifo ]] && rm $fifo
+  echo && exit 0
+}
+
+monitor() {
+  report_status
+  [[ ! -p $fifo ]] && mkfifo $fifo
+  trap shutdown_monitor SIGINT
+  while true; do
+    cat $fifo
+  done
+}
+
+case "$1" in
+  start)
+    restart
+    ;;
+  stop)
+    stop
+    ;;
+  toggle)
+    if pgrep swayidle > /dev/null ; then
+      stop
+    else
+      restart
+    fi
+    ;;
+  status)
+    report_status
+    ;;
+  monitor)
+    monitor
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|toggle|monitor}"
+    exit 1
+esac

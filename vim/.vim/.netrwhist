@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/nathan/.gem/ruby/2.5.0/gems/actionpack-5.0.7.1/lib'
+let g:netrw_dirhist_2='/home/nathan/.gem/ruby/2.5.0/gems/actionpack-5.0.7.1/lib/action_controller'
+let g:netrw_dirhist_3='/home/nathan/.gem/ruby/2.5.0/gems/actionpack-5.0.7.1/lib/action_controller/metal'
+let g:netrw_dirhist_4='/home/nathan/.gem/ruby/2.5.0/bundler/gems/inquiry-6a374c7c6d9f'
+let g:netrw_dirhist_5='/home/nathan/.gem/ruby/2.5.0/bundler/gems/inquiry-6a374c7c6d9f/lib'
+let g:netrw_dirhist_6='/home/nathan/.gem/ruby/2.5.0/bundler/gems/inquiry-6a374c7c6d9f/lib/inquiry'
+let g:netrw_dirhist_7='/home/nathan/projects/dot-realtor/features'
+let g:netrw_dirhist_8='/home/nathan/projects/waybar/include/modules/sni'
+let g:netrw_dirhist_9='/home/nathan/sync/system/rofi/.config/rofi'

@@ -1,0 +1,9 @@
+#! /bin/bash
+
+set -- ${@:-$(</dev/stdin)}
+
+if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+  wl-copy "$@"
+else
+  xclip -sel clip <<< "$@"
+fi

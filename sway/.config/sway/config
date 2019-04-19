@@ -1,0 +1,300 @@
+# SwayWM Configuration
+
+set $mod Mod4
+
+set $font "SF Pro Display"
+set $monofont "mononoki Nerd Font"
+
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+# # Base16 Tomorrow Night - https://github.com/khamer/base16-i3
+# # black
+# set $base00 "#1d1f21"
+# # very dark grey
+# set $base01 "#282a2e"
+# # dark grey
+# set $base02 "#373b41"
+# # grey
+# set $base03 "#969896"
+# # slightly lighter grey
+# set $base04 "#b4b7b4"
+# # light grey
+# set $base05 "#c5c8c6"
+# # very light grey
+# set $base06 "#e0e0e0"
+# # white
+# set $base07 "#ffffff"
+# # red
+# set $base08 "#cc6666"
+# # orange
+# set $base09 "#de935f"
+# # yellow
+# set $base0A "#f0c674"
+# # green
+# set $base0B "#b5bd68"
+# # muddy sea blue
+# set $base0C "#8abeb7"
+# # blue
+# set $base0D "#81a2be"
+# # purple
+# set $base0E "#b294bb"
+# # brown
+# set $base0F "#a3685a"
+
+# Base16 Nord - https://github.com/khamer/base16-i3
+# black
+set $base00 "#2e3440"
+# dark grey
+set $base01 "#3b4252"
+# dark grey (less dark)
+set $base02 "#434c5e"
+# medium grey
+set $base03 "#4c566a"
+# bright blue
+set $base04 "#88c0d0"
+# light grey
+set $base05 "#d8dee9"
+# lighter grey
+set $base06 "#e5e9f0"
+# white
+set $base07 "#eceff4"
+# red
+set $base08 "#bf616a"
+# orange
+set $base09 "#d08770"
+# yellow
+set $base0A "#ebcb8b"
+# green
+set $base0B "#a3be8c"
+# blue
+set $base0C "#81a1c1"
+# deep blue
+set $base0D "#5e81ac"
+# purple
+set $base0E "#b48ead"
+# teal
+set $base0F "#8fbcbb"
+
+set $term termite
+set $browser luakit
+set $mailer evolution
+set $messenger firefox https://riot.im/app/#/room/!SECRET:matrix.org
+set $musicplayer spotify --force-scale-factor=2
+set $notifier mako --font "$font 11" \
+      --background-color $base07 \
+      --text-color $base02 \
+      --border-color $base05 \
+      --border-size 0 \
+      --default-timeout 15000
+set $statusbar waybar
+set $filemanagerterm $term --title ranger --exec ranger
+set $filemanager nautilus --new-window
+set $menu rofi -show drun -show-icons
+set $execmenu rofi -show run
+set $bookmarks buku_run
+set $passwords ~/bin/rofi-pass
+set $lockscreen swaylock-fancy \
+      --inside-color="$base07" --ring-color="$base07" \
+      --key-hl-color="$base0D" --bs-hl-color="$base08" \
+      --separator-color="$base0000" --text-color "$base01" \
+      --inside-ver-color="$base0D" --inside-wrong-color="$base08" \
+      --ring-ver-color="$base0D" --ring-wrong-color="$base08" \
+      --line-uses-inside
+
+
+# Laptop touchpad
+input "1739:30383:DLL075B:01_06CB:76AF_Touchpad" {
+  dwt enabled
+  click_method clickfinger
+  natural_scroll enabled
+  middle_emulation enabled
+  scroll_method two_finger
+  tap disabled
+}
+
+# Laptop keyboard
+input "1:1:AT_Translated_Set_2_keyboard" {
+  xkb_options ctrl:nocaps
+}
+
+focus_follows_mouse no
+floating_modifier $mod normal
+
+# sway management
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exit
+bindsym $mod+x exec $lockscreen
+bindsym $mod+Shift+x exec $lockscreen -f && systemctl suspend
+
+# application shortcuts
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+d exec $execmenu
+bindsym $mod+space exec $browser
+bindsym $mod+m exec $messenger
+bindsym $mod+Shift+m exec $mailer
+bindsym $mod+Shift+g exec $filemanagerterm
+bindsym $mod+g exec $filemanager
+bindsym $mod+b exec $bookmarks
+bindsym $mod+v exec $passwords
+bindsym $mod+XF86AudioPlay exec $musicplayer
+
+# script shortcuts
+# killing the subprocesses is to work around this bug: https://github.com/Alexays/Waybar/issues/121
+bindsym $mod+p exec "killall $statusbar ; killall playerctl ; killall idlectl ; $statusbar"
+
+# screenshots
+bindsym print exec ~/bin/rofi-screenshot
+
+# notifications
+bindsym ctrl+space exec makoctl dismiss
+
+# media keys
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec sudo brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec sudo brightnessctl set 5%-
+
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# _move_ the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# workspace names
+set $workspace1 1
+set $workspace2 2
+set $workspace3 3
+set $workspace4 4
+set $workspace5 5
+set $workspace6 6
+set $workspace7 7
+set $workspace8 8
+set $workspace9 9
+set $workspace10 10
+# workspace monitors
+workspace $workspace1 output eDP-1
+workspace $workspace8 output eDP-1
+workspace $workspace9 output eDP-1
+workspace $workspace10 output eDP-1
+workspace $workspace2 output DP-1
+workspace $workspace3 output DP-1
+workspace $workspace4 output DP-1
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+# move workspaces around monitors
+#bindsym $mod+< move workspace to output left
+#bindsym $mod+> move workspace to output right
+
+
+bindsym $mod+a focus parent
+bindsym $mod+f fullscreen
+bindsym $mod+bar splith
+bindsym $mod+minus splitv
+
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+r floating toggle
+
+
+# scratchpad
+for_window [title="dropdown"] floating enable
+for_window [title="dropdown"] resize set 625 400
+for_window [title="dropdown"] move scratchpad
+for_window [title="dropdown"] border normal
+bindsym $mod+n scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
+# resizing windows
+bindsym $mod+y resize shrink width 10 px or 10 ppt
+bindsym $mod+u resize grow height 10 px or 10 ppt
+bindsym $mod+i resize shrink height 10 px or 10 ppt
+bindsym $mod+o resize grow width 10 px or 10 ppt
+
+# styles
+font $font 10
+gaps inner 10
+gaps outer 0
+
+default_border pixel 1
+default_floating_border none
+
+titlebar_padding 6 2
+
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base0A $base0A $base00 $base0A   $base01
+client.focused_inactive $base03 $base03 $base07 $base03   $base01
+client.unfocused        $base01 $base01 $base05 $base01   $base01
+client.urgent           $base08 $base08 $base00 $base08   $base08
+client.placeholder      $base00 $base00 $base05 $base00   $base01
+client.background       $base07
+
+# bind applications to specific workspaces
+assign [class="(?i)riot"] $workspace1
+assign [class="(?i)discord"] $workspace1
+assign [class="(?i)evolution"] $workspace9
+assign [class="(?i)spotify"] $workspace10
+
+# floating rules - use `swaymsg -t get_tree` to see properties for open windows
+for_window [title="^Volume Control$"] floating enable
+for_window [title="(?i)nextcloud"] floating enable
+for_window [class="(?i)gimp"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [app_id="zenity"] floating enable
+for_window [app_id="gxmessage"] floating enable
+
+include $HOME/.config/sway/config.d/$(hostname).config
+
+# start up usual applications
+exec $statusbar
+exec $notifier
+exec ~/bin/sway-dim-inactive-windows.py
+exec ~/bin/opaque-termite --title "dropdown" -e "tmux new -s 'dropdown'"
+exec swaymsg "workspace 2; exec nextcloud"

@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+
+# ensure proper usage
+if [[ ! -n $ASYNC_TESTS_SOCKET ]]; then
+  echo 'No value for $ASYNC_TESTS_SOCKET: ' $ASYNC_TESTS_SOCKET
+  exit 1
+fi
+
+source $HOME/.zshrc
+
+# cleanup at exit
+at_exit() {
+  kill -s SIGTERM $!
+  [[ -p $ASYNC_TESTS_SOCKET ]] && rm $ASYNC_TESTS_SOCKET
+  echo && exit 0
+}
+trap at_exit SIGINT
+
+# continually execute commands piped into the socket
+[[ ! -p $ASYNC_TESTS_SOCKET ]] && mkfifo $ASYNC_TESTS_SOCKET
+while true; do
+  eval "$(cat $ASYNC_TESTS_SOCKET)"
+done

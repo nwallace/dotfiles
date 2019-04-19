@@ -1,0 +1,131 @@
+/*
+ * Colors: (Nord)
+ *   black:        rgb(46,52,64)
+ *   darker grey:  rgb(59,66,82)
+ *   dark grey:    rgb(67,76,94)
+ *   medium grey:  rgb(76,86,106)
+ *   light grey:   rgb(216,222,233)
+ *   lighter grey: rgb(229,233,240)
+ *   white:        rgb(236,239,244)
+ *   red:          rgb(191,97,106)
+ *   orange:       rgb(208,135,112)
+ *   yellow:       rgb(235,203,139)
+ *   green:        rgb(163,190,140)
+ *   teal:         rgb(143,188,187)
+ *   bright blue:  rgb(136,192,208)
+ *   blue:         rgb(129,161,193)
+ *   deep blue:    rgb(94,129,172)
+ *   purple:       rgb(180,142,173)
+ */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "mononoki Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(46,52,64,0.9);
+  color: rgb(236,239,244);
+}
+
+#workspaces button {
+  padding: 0 2px;
+  background: transparent;
+  color: rgb(236,239,244);
+}
+
+#workspaces button.visible {
+  background: rgb(76,86,106);
+}
+
+#workspaces button.focused {
+  background: rgb(136,192,208);
+  color: rgb(46,52,64);
+}
+
+#workspaces button.urgent {
+  background: rgb(235,203,139);
+}
+
+#mode {
+  background: #64727D;
+  border-bottom: 2px solid rgb(236,239,244);
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
+  padding: 0 8px;
+  margin: 0 3px;
+}
+
+/* #clock { */
+/*   background-color: #64727D; */
+/* } */
+
+#battery {
+  background-color: rgb(180,142,173);
+  color: rgb(46,52,64);
+}
+
+#battery.charging {
+  background-color: #e29ed6;
+}
+
+@keyframes blink {
+  to {
+    background-color: rgb(236,239,244);
+    color: rgb(67,76,94);
+  }
+}
+
+#battery.warning:not(.charging) {
+  background: rgb(191,97,106);
+  color: rgb(236,239,244);
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#cpu {
+  background: rgb(163,190,140);
+  color: rgb(46,52,64);
+}
+
+#memory {
+  background: rgb(143,188,187);
+  color: rgb(46,52,64);
+}
+
+#network {
+  background: rgb(129,161,193);
+  color: rgb(46,52,64);
+}
+
+#network.disconnected {
+  background: rgb(191,97,106);
+}
+
+#pulseaudio {
+  background: rgb(235,203,139);
+  color: rgb(46,52,64);
+}
+
+#pulseaudio.muted {
+  background: rgba(235,203,139,0.7);
+}
+
+#custom-spotify {
+  color: rgba(236,239,244,0.5);
+}
+
+#custom-spotify.playing {
+  background: rgb(76,86,106);
+  color: rgb(236,239,244);
+}
+
+#tray {
+  background-color: rgb(67,76,94);
+}

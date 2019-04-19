@@ -1,0 +1,99 @@
+snippet {
+{
+  $0
+}
+endsnippet
+
+snippet d
+do
+  $0
+end
+endsnippet
+
+snippet begin
+begin
+  $0
+rescue $1=> e
+  $2
+end
+endsnippet
+
+snippet pry
+binding.pry
+endsnippet
+
+snippet tap "tap" i
+tap{|o| $0}
+endsnippet
+
+snippet tpry "tap and pry" i
+tap{|o|binding.pry}
+endsnippet
+
+snippet class
+class ${1:`!p title = re.sub('\.rb$', '', fn)
+snip.rv = ''.join(x.capitalize() or '_' for x in title.split('_'))`}
+  $0
+end
+endsnippet
+
+snippet spec
+require "spec_helper"
+
+RSpec.describe ${1:`!p title = re.sub('_spec\.rb$', '', fn)
+snip.rv = ''.join(x.capitalize() or '_' for x in title.split('_'))`} do
+
+  $0
+end
+endsnippet
+
+snippet let
+let(:${1:var}) { ${2:val} }
+endsnippet
+
+snippet describe
+describe $1 do
+  $0
+end
+endsnippet
+
+snippet context
+context "$1" do
+  $0
+end
+endsnippet
+
+snippet it
+it "$1" do
+  $0
+end
+endsnippet
+
+snippet xit
+it "$1"
+endsnippet
+
+snippet expect
+expect do
+  $1
+end.to $2
+endsnippet
+
+snippet feature
+feature "$1"${2:, :js} do
+
+  $0
+end
+endsnippet
+
+snippet scenario
+scenario "$1" do
+  $0
+end
+endsnippet
+
+snippet controller
+class $1Controller < ApplicationController
+  $0
+end
+endsnippet

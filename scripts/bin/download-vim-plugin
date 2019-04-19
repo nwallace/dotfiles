@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+
+plugin=$1
+
+enforce_usage() {
+  if [ -z "$plugin" ]; then
+    echo "Usage: $(basename $0) <GIT_REPO_URL>"
+    exit 1
+  fi
+}
+
+main() {
+  enforce_usage
+  cd ~/.vim/bundle
+  git clone "$plugin"
+}
+
+main

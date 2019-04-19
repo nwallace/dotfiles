@@ -1,0 +1,7 @@
+#!/bin/bash
+
+tempfile="$(mktemp)"
+
+sed 's/\(\),0\.[0-9]\+)$/\1,1.00)/' $HOME/.config/termite/config > "$tempfile"
+
+termite --config="$tempfile" "$@"

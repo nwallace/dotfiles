@@ -1,0 +1,9 @@
+snippet note
+(def DEBUG true)
+(defn- note
+  ([v] (when DEBUG (println "[NOTE]" v)) v)
+  ([v l] (when DEBUG (println "[NOTE]" l ":" v)) v))
+(defn- eton
+  ([v] (note v))
+  ([l v] (note v l)))
+endsnippet

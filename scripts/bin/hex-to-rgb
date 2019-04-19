@@ -1,0 +1,8 @@
+#! /bin/bash
+
+format="%d %d %d\n"
+
+for hex in "$@"; do
+  trimmed="$(echo "$hex" | tr -d '#')"
+  printf "$format" 0x${trimmed:0:2} 0x${trimmed:2:2} 0x${trimmed:4:2}
+done

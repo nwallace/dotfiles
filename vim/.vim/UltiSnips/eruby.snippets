@@ -1,0 +1,27 @@
+extends ruby, html
+
+snippet = "embed Ruby" i
+<%= $0 %>
+endsnippet
+
+snippet % "evaluate Ruby" i
+<% $0 %>
+endsnippet
+
+snippet # "ERB comment" i
+<%# $0 %>
+endsnippet
+
+snippet <! "HTML comment" i
+<!-- $0 -->
+endsnippet
+
+snippet form_for
+<%= form_for $1 do |f| %>
+  $0
+<% end %>
+endsnippet
+
+snippet render
+<%= render ${1:"${2:some/partial}"} %>
+endsnippet

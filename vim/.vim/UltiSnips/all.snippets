@@ -1,0 +1,33 @@
+snippet lorem
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a maximus nunc, quis consectetur purus. Phasellus sagittis nunc eu rhoncus tempor. In bibendum nisl at eleifend rutrum. Aliquam dui urna, accumsan in fringilla et, dignissim at eros. Vivamus congue blandit iaculis. Integer non dui id lorem blandit tempus elementum nec felis. Nulla at libero ultricies, ullamcorper urna in, finibus ligula. Nunc mollis, metus ut elementum consequat, metus enim iaculis diam, vitae pellentesque metus eros eget ex. Morbi luctus ornare gravida. Donec congue malesuada sodales.
+endsnippet
+
+snippet DUP
+DUP ${1:`!p
+from datetime import datetime
+snip.rv = datetime.now().strftime("%Y%m%d%H%M")`}
+endsnippet
+
+snippet gpl
+/*
+ * Copyright `!p
+from datetime import date
+snip.rv = date.today().year` ${1:Nathan Wallace}
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Authored by: $1 <${2:nathan@nosuchthingastwo.com}>
+ */
+
+endsnippet

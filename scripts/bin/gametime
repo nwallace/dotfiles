@@ -1,0 +1,40 @@
+#! /usr/bin/zsh
+
+NONESSENTIAL_CONTAINERS=(   nginx-letsencrypt nginx-gen mariadb redis piwik nextcloud postgres gitlab)
+ALL_CONTAINERS=(nginx ghost nginx-letsencrypt nginx-gen mariadb redis piwik nextcloud postgres gitlab)
+
+turn-on() {
+  for container in $NONESSENTIAL_CONTAINERS; do
+    docker stop $container
+  done
+}
+
+turn-off() {
+  for container in $NONESSENTIAL_CONTAINERS; do
+    docker start $container
+  done
+}
+
+status() {
+  diff --unchanged-line-format="" --old-line-format=$'\e[0;31m- %L\e[0m' --new-line-format=$'\e[0;32m+ %L\e[0m' \
+    <(for container in $ALL_CONTAINERS; do echo $container; done | sort) \
+    <(docker ps --format='{{.Names}}' | sort)
+}
+
+usage() {
+  echo "$0 [on|off]"
+}
+
+case "$1" in
+  on)
+    turn-on ;;
+  off)
+    turn-off ;;
+  st)
+    status ;;
+  "-h")
+    usage ;;
+  *)
+    usage
+    exit 1 ;;
+esac

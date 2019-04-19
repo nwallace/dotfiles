@@ -1,0 +1,5 @@
+bin/setup
+node_modules/
+.nrepl-port
+.lein-repl-history
+ignore/

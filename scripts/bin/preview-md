@@ -1,0 +1,7 @@
+#! /bin/bash
+
+set -e
+
+tempfile="$(mktemp --suffix ".pdf")"
+
+pandoc $1 -o "$tempfile" && xdg-open "$tempfile"
